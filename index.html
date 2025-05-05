@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تطبيق شمسين للطاقة الشمسية</title>
+    <style>
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: #FFA500;
+            color: white;
+            padding: 20px 0;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        
+        .logo {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 15px;
+        }
+        
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .main-button {
+            background-color: #FF8C00;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .main-button:hover {
+            background-color: #FF6B00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .info-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: right;
+        }
+        
+        .info-section h2 {
+            color: #FF8C00;
+            margin-top: 0;
+        }
+        
+        footer {
+            margin-top: 40px;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+        }
+        
+        .signature {
+            font-weight: bold;
+            color: #FF8C00;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .main-button {
+                padding: 12px;
+                font-size: 1em;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="https://via.placeholder.com/100x100.png?text=شمسين" alt="شعار شمسين" class="logo">
+            <h1>تطبيق شمسين للطاقة الشمسية</h1>
+            <p>حلول متكاملة للطاقة النظيفة</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="buttons-container">
+            <button class="main-button" onclick="window.location.href='https://example.com/calculator'">حاسبة الطاقة الشمسية</button>
+            <button class="main-button" onclick="window.location.href='https://example.com/installers'">البحث عن فنيين</button>
+            <button class="main-button" onclick="window.location.href='https://example.com/monitoring'">مراقبة النظام</button>
+        </div>
+        
+        <div class="info-section">
+            <h2>معلومات عن منظومة الطاقة الشمسية</h2>
+            <p>تعتبر الطاقة الشمسية أحد أهم مصادر الطاقة المتجددة والنظيفة في العالم. تعمل المنظومة الشمسية عن طريق تحويل أشعة الشمس إلى كهرباء باستخدام الألواح الشمسية.</p>
+            
+            <h3>مكونات النظام الشمسي:</h3>
+            <ul>
+                <li>الألواح الشمسية: تحول ضوء الشمس إلى تيار كهربائي مستمر</li>
+                <li>العاكس: يحول التيار المستمر إلى تيار متردد</li>
+                <li>نظام التخزين (بطاريات): تخزين الطاقة للاستخدام ليلاً</li>
+                <li>نظام المراقبة: لمتابعة أداء النظام</li>
+            </ul>
+            
+            <h3>فوائد الطاقة الشمسية:</h3>
+            <ul>
+                <li>توفير في فواتير الكهرباء</li>
+                <li>طاقة نظيفة وصديقة للبيئة</li>
+                <li>استقلالية عن شبكة الكهرباء</li>
+                <li>زيادة قيمة العقار</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>جميع الحقوق محفوظة &copy; 2023 تطبيق شمسين</p>
+            <p>تطوير: <a href="mailto:merghanigasimosman@gmail.com" class="signature">ميرغني أبوالقاسم عثمان</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // يمكن إضافة وظائف جافاسكريبت هنا
+        document.addEventListener('DOMContentLoaded', function() {
+            // إضافة تأثيرات أو وظائف إضافية
+            console.log('تم تحميل الصفحة بنجاح');
+            
+            // يمكنك إضافة رسالة ترحيبية
+            setTimeout(function() {
+                alert('مرحباً بك في تطبيق شمسين للطاقة الشمسية!');
+            }, 1000);
+        });
+    </script>
+</body>
+  </html>
