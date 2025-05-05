@@ -5,144 +5,242 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>تطبيق شمسين للطاقة الشمسية</title>
     <style>
+        :root {
+            --primary: #FF8C00;
+            --primary-light: #FFA500;
+            --secondary: #2E86C1;
+            --dark: #333;
+            --light: #f5f5f5;
+            --white: #fff;
+        }
+        
         body {
             font-family: 'Tajawal', Arial, sans-serif;
-            background-color: #f5f5f5;
-            color: #333;
+            background-color: var(--light);
+            color: var(--dark);
             margin: 0;
             padding: 0;
-            text-align: center;
+            line-height: 1.6;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
         
         header {
-            background-color: #FFA500;
-            color: white;
-            padding: 20px 0;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: var(--white);
+            padding: 30px 0;
             border-radius: 0 0 20px 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            text-align: center;
         }
         
         h1 {
             margin: 0;
-            font-size: 2.2em;
+            font-size: 2.5em;
         }
         
         .logo {
-            width: 100px;
-            height: 100px;
-            margin-bottom: 15px;
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
         }
         
-        .buttons-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin: 30px 0;
+        .main-buttons {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin: 40px 0;
         }
         
         .main-button {
-            background-color: #FF8C00;
-            color: white;
-            border: none;
-            padding: 15px;
-            font-size: 1.2em;
-            border-radius: 10px;
-            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background-color: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: all 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+            color: var(--dark);
         }
         
         .main-button:hover {
-            background-color: #FF6B00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
         }
         
-        .info-section {
-            background-color: white;
-            border-radius: 15px;
+        .button-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+        }
+        
+        .button-content {
             padding: 20px;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1;
             text-align: right;
         }
         
+        .button-title {
+            font-size: 1.4em;
+            margin: 0 0 5px 0;
+            color: var(--primary);
+        }
+        
+        .button-desc {
+            margin: 0;
+            color: #666;
+        }
+        
+        .info-section {
+            background-color: var(--white);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
         .info-section h2 {
-            color: #FF8C00;
+            color: var(--primary);
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 10px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .feature-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 15px;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .feature-card h3 {
+            color: var(--secondary);
             margin-top: 0;
         }
         
         footer {
-            margin-top: 40px;
+            margin-top: 50px;
             padding: 20px;
             color: #666;
             font-size: 0.9em;
+            text-align: center;
+            border-top: 1px solid #ddd;
         }
         
         .signature {
             font-weight: bold;
-            color: #FF8C00;
+            color: var(--primary);
             text-decoration: none;
         }
         
-        @media (max-width: 600px) {
-            .container {
-                padding: 10px;
+        @media (max-width: 768px) {
+            .main-button {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .button-icon {
+                width: 100%;
+                height: 60px;
             }
             
             h1 {
-                font-size: 1.8em;
-            }
-            
-            .main-button {
-                padding: 12px;
-                font-size: 1em;
+                font-size: 2em;
             }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="https://via.placeholder.com/100x100.png?text=شمسين" alt="شعار شمسين" class="logo">
+            <img src="https://via.placeholder.com/120x120.png?text=شمسين" alt="شعار شمسين" class="logo">
             <h1>تطبيق شمسين للطاقة الشمسية</h1>
-            <p>حلول متكاملة للطاقة النظيفة</p>
+            <p>حلول متكاملة لأنظمة الطاقة الشمسية</p>
         </div>
     </header>
     
     <div class="container">
-        <div class="buttons-container">
-            <button class="main-button" onclick="window.location.href='https://shamsain23.vercel.app/'">حاسبة الطاقة الشمسية</button>
-            <button class="main-button" onclick="window.location.href='https://calculate-eosin-eight.vercel.app/#'">حساب توافق المنظومة </button>
-            <button class="main-button" onclick="window.location.href='https://battery-one.vercel.app/'" >خبير البطاريات </button>
+        <div class="main-buttons">
+            <a href="https://shamsain23.vercel.app/" class="main-button" target="_blank">
+                <div class="button-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="button-content">
+                    <h3 class="button-title">حاسبة الطاقة الشمسية</h3>
+                    <p class="button-desc">احسب احتياجاتك من الألواح الشمسية بدقة بناءً على استهلاكك</p>
+                </div>
+            </a>
+            
+            <a href="https://calculate-eosin-eight.vercel.app/#" class="main-button" target="_blank">
+                <div class="button-icon" style="background-color: var(--secondary);">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <div class="button-content">
+                    <h3 class="button-title">توافق المنظومة مع الأجهزة</h3>
+                    <p class="button-desc">اكتشف مدى توافق نظامك الشمسي مع الأجهزة الكهربائية</p>
+                </div>
+            </a>
+            
+            <a href="https://battery-one.vercel.app/" class="main-button" target="_blank">
+                <div class="button-icon" style="background-color: #27AE60;">
+                    <i class="fas fa-battery-full"></i>
+                </div>
+                <div class="button-content">
+                    <h3 class="button-title">خبير بطاريات الطاقة الشمسية</h3>
+                    <p class="button-desc">احصل على أفضل حلول تخزين الطاقة لنظامك الشمسي</p>
+                </div>
+            </a>
         </div>
         
         <div class="info-section">
             <h2>معلومات عن منظومة الطاقة الشمسية</h2>
-            <p>تعتبر الطاقة الشمسية أحد أهم مصادر الطاقة المتجددة والنظيفة في العالم. تعمل المنظومة الشمسية عن طريق تحويل أشعة الشمس إلى كهرباء باستخدام الألواح الشمسية.</p>
             
-            <h3>مكونات النظام الشمسي:</h3>
-            <ul>
-                <li>الألواح الشمسية: تحول ضوء الشمس إلى تيار كهربائي مستمر</li>
-                <li>العاكس: يحول التيار المستمر إلى تيار متردد</li>
-                <li>نظام التخزين (بطاريات): تخزين الطاقة للاستخدام ليلاً</li>
-                <li>نظام المراقبة: لمتابعة أداء النظام</li>
-            </ul>
-            
-            <h3>فوائد الطاقة الشمسية:</h3>
-            <ul>
-                <li>توفير في فواتير الكهرباء</li>
-                <li>طاقة نظيفة وصديقة للبيئة</li>
-                <li>استقلالية عن شبكة الكهرباء</li>
-                <li>زيادة قيمة العقار</li>
-            </ul>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>كيف تعمل الطاقة الشمسية؟</h3>
+                    <p>تحول الألواح الشمسية ضوء الشمس إلى كهرباء مستمرة (DC) والتي يتم تحويلها إلى تيار متردد (AC) عبر العاكس لاستخدامها في المنزل.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>مكونات النظام الأساسية</h3>
+                    <ul>
+                        <li>الألواح الشمسية</li>
+                        <li>العاكس الشمسي</li>
+                        <li>نظام البطاريات</li>
+                        <li>أدوات المراقبة</li>
+                    </ul>
+                </div>
+                
+                <div class="feature-card">
+                    <h3>فوائد الطاقة الشمسية</h3>
+                    <ul>
+                        <li>توفير في فواتير الكهرباء</li>
+                        <li>طاقة نظيفة ومتجددة</li>
+                        <li>زيادة قيمة العقار</li>
+                        <li>استقلالية عن شبكة الكهرباء</li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     
@@ -152,18 +250,5 @@
             <p>تطوير: <a href="mailto:merghanigasimosman@gmail.com" class="signature">ميرغني أبوالقاسم عثمان</a></p>
         </div>
     </footer>
-    
-    <script>
-        // يمكن إضافة وظائف جافاسكريبت هنا
-        document.addEventListener('DOMContentLoaded', function() {
-            // إضافة تأثيرات أو وظائف إضافية
-            console.log('تم تحميل الصفحة بنجاح');
-            
-            // يمكنك إضافة رسالة ترحيبية
-            setTimeout(function() {
-                alert('مرحباً بك في تطبيق شمسين للطاقة الشمسية!');
-            }, 1000);
-        });
-    </script>
 </body>
-  </html>
+                </html>
