@@ -4,29 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شمسين | حلول الطاقة الشمسية المتكاملة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #FF6B00;
-            --secondary: #FFA343;
-            --accent: #2E86C1;
-            --accent2: #27AE60;
-            --accent3: #8E44AD;
-            --dark: #1E1E1E;
-            --light: #F8F9FA;
-            --white: #FFFFFF;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            /* ألوان الوضع الفاتح */
+            --primary-light: #FF6B00;
+            --secondary-light: #FFA343;
+            --background-light: #F8F9FA;
+            --text-light: #1E1E1E;
+            --card-light: #FFFFFF;
+            --border-light: #e0e0e0;
+            
+            /* ألوان الوضع الداكن */
+            --primary-dark: #FF8C00;
+            --secondary-dark: #FFC107;
+            --background-dark: #121212;
+            --text-dark: #E0E0E0;
+            --card-dark: #1E1E1E;
+            --border-dark: #333333;
+            
+            /* ألوان مشتركة */
+            --accent-blue: #2E86C1;
+            --accent-green: #27AE60;
+            --accent-purple: #8E44AD;
+            --accent-red: #E74C3C;
+            
+            /* تعيين الألوان الافتراضية */
+            --primary: var(--primary-light);
+            --secondary: var(--secondary-light);
+            --background: var(--background-light);
+            --text: var(--text-light);
+            --card: var(--card-light);
+            --border: var(--border-light);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s, color 0.3s;
         }
         
         body {
             font-family: 'Tajawal', sans-serif;
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--background);
+            color: var(--text);
             line-height: 1.7;
         }
         
@@ -41,7 +64,7 @@
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: var(--white);
             padding: 2rem 0;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
             position: relative;
             overflow: hidden;
         }
@@ -57,18 +80,45 @@
             height: 100px;
             margin-bottom: 1rem;
             border-radius: 50%;
-            border: 3px solid var(--white);
-            box-shadow: var(--shadow);
+            border: 3px solid white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
         }
         
         h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
+            color: white;
         }
         
         .tagline {
             font-size: 1.2rem;
             opacity: 0.9;
+            color: white;
+        }
+        
+        /* نظام التبديل بين الثيمات */
+        .theme-switcher {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            z-index: 1000;
+            background: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .theme-switcher:hover {
+            transform: scale(1.1);
         }
         
         /* Main Content */
@@ -84,11 +134,12 @@
         }
         
         .service-card {
-            background: var(--white);
+            background: var(--card);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: var(--shadow);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border);
         }
         
         .service-card:hover {
@@ -115,7 +166,7 @@
         .btn {
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            color: var(--white);
+            color: white;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
@@ -125,6 +176,7 @@
             cursor: pointer;
             width: 100%;
             text-align: center;
+            font-family: 'Tajawal', sans-serif;
         }
         
         .btn-primary {
@@ -136,7 +188,7 @@
         }
         
         .btn-accent {
-            background: var(--accent);
+            background: var(--accent-blue);
         }
         
         .btn-accent:hover {
@@ -144,7 +196,7 @@
         }
         
         .btn-accent2 {
-            background: var(--accent2);
+            background: var(--accent-green);
         }
         
         .btn-accent2:hover {
@@ -152,20 +204,19 @@
         }
         
         .btn-accent3 {
-            background: var(--accent3);
+            background: var(--accent-purple);
         }
         
         .btn-accent3:hover {
             background: #7d3fb1;
         }
         
-        /* About Section */
-        .about {
-            background: var(--white);
-            padding: 3rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin-bottom: 3rem;
+        /* FAQ Section */
+        .faq-section {
+            padding: 4rem 0;
+            background-color: var(--card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
         }
         
         .section-title {
@@ -185,12 +236,143 @@
             margin: 0.5rem auto;
         }
         
+        .faq-search {
+            display: flex;
+            max-width: 600px;
+            margin: 2rem auto;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+        
+        .faq-search input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            font-family: 'Tajawal', sans-serif;
+            background: var(--card);
+            color: var(--text);
+        }
+        
+        .faq-search input::placeholder {
+            color: var(--text);
+            opacity: 0.7;
+        }
+        
+        .faq-search button {
+            padding: 0 20px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 2rem 0;
+        }
+        
+        .category-btn {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--background);
+            color: var(--text);
+            border: 1px solid var(--primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .category-btn.active, .category-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background: var(--card);
+            border: 1px solid var(--border);
+        }
+        
+        .faq-question {
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .faq-question h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+        
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+            background: rgba(255, 140, 0, 0.05);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding: 20px;
+        }
+        
+        .ask-question {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .ask-btn {
+            padding: 12px 30px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            font-family: 'Tajawal', sans-serif;
+        }
+        
+        .ask-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255, 107, 0, 0.3);
+        }
+        
         /* Footer */
         footer {
-            background: var(--dark);
-            color: var(--white);
+            background: var(--card);
+            color: var(--text);
             padding: 2rem 0;
             text-align: center;
+            border-top: 1px solid var(--border);
         }
         
         .footer-content {
@@ -204,15 +386,27 @@
         }
         
         .social-links a {
-            color: var(--white);
+            color: var(--text);
             margin: 0 0.5rem;
             font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary);
         }
         
         .signature {
-            color: var(--secondary);
+            color: var(--primary);
             font-weight: bold;
             margin-top: 1rem;
+        }
+        
+        .copyright {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.8;
         }
         
         /* Responsive */
@@ -225,15 +419,23 @@
                 grid-template-columns: 1fr;
             }
             
-            .about {
-                padding: 2rem;
+            .theme-switcher {
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 0.9rem;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<body>
+<body class="light-theme">
+    <!-- زر تبديل الثيم -->
+    <button class="theme-switcher" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+    
+    <!-- Header -->
     <header>
         <div class="container">
             <div class="header-content">
@@ -244,6 +446,7 @@
         </div>
     </header>
     
+    <!-- Main Content -->
     <div class="main-content">
         <div class="container">
             <div class="services">
@@ -284,44 +487,94 @@
                 </div>
             </div>
             
-            <div class="about">
-                <h2 class="section-title">نظام الطاقة الشمسية المتكامل</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-                    <div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-solar-panel" style="margin-left: 8px;"></i> مكونات النظام</h3>
-                        <ul style="list-style-type: none;">
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> الألواح الشمسية</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> العاكس الشمسي</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> نظام البطاريات</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> نظام المراقبة</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> حاملات الألواح</li>
-                        </ul>
+            <!-- FAQ Section -->
+            <section class="faq-section">
+                <h2 class="section-title">الأسئلة الشائعة</h2>
+                
+                <div class="faq-search">
+                    <input type="text" placeholder="ابحث في الأسئلة...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="faq-categories">
+                    <button class="category-btn active" data-category="all">الكل</button>
+                    <button class="category-btn" data-category="installation">التركيب</button>
+                    <button class="category-btn" data-category="maintenance">الصيانة</button>
+                    <button class="category-btn" data-category="financial">التمويل</button>
+                    <button class="category-btn" data-category="technical">فنية</button>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item" data-category="installation">
+                        <div class="faq-question">
+                            <h3>كم من الوقت يستغرق تركيب النظام الشمسي؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>مدة التركيب تعتمد على حجم النظام وتعقيده. عادةً ما يستغرق تركيب نظام منزلي صغير (3-5 كيلوواط) من يوم إلى 3 أيام عمل. الأنظمة الأكبر قد تستغرق أسبوعًا أو أكثر.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-bolt" style="margin-left: 8px;"></i> المميزات</h3>
-                        <ul style="list-style-type: none;">
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> توفير في فواتير الكهرباء</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> طاقة نظيفة ومتجددة</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> استقلالية عن الشبكة</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> زيادة قيمة العقار</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> دعم حكومي في كثير من الدول</li>
-                        </ul>
+                    
+                    <div class="faq-item" data-category="financial">
+                        <div class="faq-question">
+                            <h3>ما هي فترة استرداد التكلفة؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>فترة استرداد التكلفة تتراوح عادة بين 5-7 سنوات في السعودية، حسب حجم النظام واستهلاكك للكهرباء. بعد هذه الفترة، تحصل على كهرباء مجانية تقريبًا لمدة 20 سنة أو أكثر.</p>
+                        </div>
                     </div>
-                    <div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-lightbulb" style="margin-left: 8px;"></i> نصائح مهمة</h3>
-                        <ul style="list-style-type: none;">
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> اختيار الزاوية الصحيحة للألواح</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> تنظيف الألواح بانتظام</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> مراقبة أداء النظام</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> اختيار فنيين معتمدين</li>
-                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> حساب فترة استرداد التكلفة</li>
-                        </ul>
+                    
+                    <div class="faq-item" data-category="technical">
+                        <div class="faq-question">
+                            <h3>ما هي الزاوية المثالية للألواح الشمسية؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>في السعودية، الزاوية المثالية تتراوح بين 20-30 درجة. يمكنك استخدام أداة "زاوية الإشعاع الشمسي" في تطبيقنا لحساب الزاوية الأمثل لموقعك الدقيق.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-category="maintenance">
+                        <div class="faq-question">
+                            <h3>كم مرة يحتاج النظام للصيانة؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>يوصى بتنظيف الألواح كل 3-6 أشهر حسب الموقع. الفحص الفني الشامل يجب أن يتم مرة سنويًا. الأنظمة ذات البطاريات تحتاج لصيانة أكثر تكرارًا.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-category="installation">
+                        <div class="faq-question">
+                            <h3>هل يمكن تركيب النظام الشمسي على أي سطح؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>معظم الأسطح مناسبة للتركيب، لكن هناك بعض المتطلبات: أن يكون السطح قوياً بما يكفي لتحمل وزن الألواح، وأن يكون خالياً من العوائق التي تسبب الظل، وأن يكون اتجاهه مناسباً (يفضل نحو الجنوب في النصف الشمالي من الكرة الأرضية).</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item" data-category="financial">
+                        <div class="faq-question">
+                            <h3>هل هناك دعم حكومي لتركيب الأنظمة الشمسية؟</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>نعم، تقدم بعض الدول والحكومات المحلية حوافز لتركيب الأنظمة الشمسية، مثل القروض الميسرة أو الخصومات الضريبية. في السعودية، هناك برامج دعم من قبل الحكومة لتحفيز استخدام الطاقة الشمسية.</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+                
+                <div class="ask-question">
+                    <h3>لم تجد جواباً لسؤالك؟</h3>
+                    <button class="ask-btn">اطرح سؤالك <i class="fas fa-paper-plane"></i></button>
+                </div>
+            </section>
         </div>
     </div>
     
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -333,11 +586,140 @@
                     <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
                 <p class="signature">
-                    تطوير: <a href="mailto:merghanigasimosman@gmail.com" style="color: var(--secondary); text-decoration: none;">ميرغني أبوالقاسم عثمان</a>
+                    تطوير: <a href="mailto:merghanigasimosman@gmail.com" style="color: var(--primary); text-decoration: none;">ميرغني أبوالقاسم عثمان</a>
                 </p>
-                <p style="margin-top: 1rem; font-size: 0.9rem;">جميع الحقوق محفوظة &copy; 2023 شمسين</p>
+                <p class="copyright">جميع الحقوق محفوظة &copy; <span id="year"></span> شمسين</p>
             </div>
         </div>
     </footer>
+
+    <script>
+        // نظام تبديل الثيمات
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        
+        // التحقق من تفضيلات النظام
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            body.classList.add('dark-theme');
+            updateTheme();
+        }
+        
+        // استعادة التفضيل من localStorage إذا موجود
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.classList.remove('light-theme', 'dark-theme');
+            body.classList.add(savedTheme);
+            updateTheme();
+        }
+        
+        // تبديل الثيم عند النقر
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            body.classList.toggle('dark-theme');
+            
+            // حفظ التفضيل
+            const currentTheme = body.classList.contains('light-theme') ? 'light-theme' : 'dark-theme';
+            localStorage.setItem('theme', currentTheme);
+            
+            updateTheme();
+        });
+        
+        // تحديث الألوان حسب الثيم
+        function updateTheme() {
+            const root = document.documentElement;
+            const isDark = body.classList.contains('dark-theme');
+            
+            // تحديث الأيقونة
+            const icon = themeToggle.querySelector('i');
+            icon.classList.toggle('fa-moon', !isDark);
+            icon.classList.toggle('fa-sun', isDark);
+            
+            // تطبيق الألوان
+            if (isDark) {
+                root.style.setProperty('--primary', 'var(--primary-dark)');
+                root.style.setProperty('--secondary', 'var(--secondary-dark)');
+                root.style.setProperty('--background', 'var(--background-dark)');
+                root.style.setProperty('--text', 'var(--text-dark)');
+                root.style.setProperty('--card', 'var(--card-dark)');
+                root.style.setProperty('--border', 'var(--border-dark)');
+            } else {
+                root.style.setProperty('--primary', 'var(--primary-light)');
+                root.style.setProperty('--secondary', 'var(--secondary-light)');
+                root.style.setProperty('--background', 'var(--background-light)');
+                root.style.setProperty('--text', 'var(--text-light)');
+                root.style.setProperty('--card', 'var(--card-light)');
+                root.style.setProperty('--border', 'var(--border-light)');
+            }
+        }
+        
+        // مراقبة تغييرات نظام التشغيل
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            const newTheme = e.matches ? 'dark-theme' : 'light-theme';
+            body.classList.remove('light-theme', 'dark-theme');
+            body.classList.add(newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateTheme();
+        });
+        
+        // تفعيل الأسئلة الشائعة
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // إغلاق الباقي إذا فتحنا سؤالاً جديداً
+                if (item.classList.contains('active')) {
+                    document.querySelectorAll('.faq-item').forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+        
+        // تصفية الأسئلة حسب التصنيف
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const category = btn.dataset.category;
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // بحث الأسئلة
+        const searchInput = document.querySelector('.faq-search input');
+        searchInput.addEventListener('input', () => {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('h3').textContent.toLowerCase();
+                const answer = item.querySelector('p').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+        
+        // فتح نموذج السؤال
+        document.querySelector('.ask-btn').addEventListener('click', () => {
+            alert('سيتم توجيهك إلى نموذج إرسال السؤال. شكراً لاستخدامك تطبيق شمسين!');
+            // يمكن استبدال هذا بفتح نموذج فعلي أو نافذة منبثقة
+        });
+        
+        // تحديث سنة حقوق النشر
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
-        </html>
+    </html>
