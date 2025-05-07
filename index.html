@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شمسين | حلول الطاقة الشمسية</title>
+    <title>شمسين | حلول الطاقة الشمسية المتكاملة</title>
     <style>
         :root {
             --primary: #FF6B00;
             --secondary: #FFA343;
             --accent: #2E86C1;
+            --accent2: #27AE60;
+            --accent3: #8E44AD;
             --dark: #1E1E1E;
             --light: #F8F9FA;
             --white: #FFFFFF;
@@ -113,17 +115,48 @@
         .btn {
             display: inline-block;
             padding: 0.8rem 1.5rem;
-            background: var(--primary);
             color: var(--white);
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
             margin-top: 1rem;
-            transition: background 0.3s ease;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
         }
         
-        .btn:hover {
+        .btn-primary {
+            background: var(--primary);
+        }
+        
+        .btn-primary:hover {
             background: var(--secondary);
+        }
+        
+        .btn-accent {
+            background: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background: #1d6fa5;
+        }
+        
+        .btn-accent2 {
+            background: var(--accent2);
+        }
+        
+        .btn-accent2:hover {
+            background: #219955;
+        }
+        
+        .btn-accent3 {
+            background: var(--accent3);
+        }
+        
+        .btn-accent3:hover {
+            background: #7d3fb1;
         }
         
         /* About Section */
@@ -204,9 +237,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <img src="https://via.placeholder.com/100x100.png?text=شمسين" alt="شعار شمسين" class="logo">
+                <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&h=100&q=80" alt="شعار شمسين" class="logo">
                 <h1>شمسين</h1>
-                <p class="tagline">حلول متكاملة للطاقة الشمسية</p>
+                <p class="tagline">حلول الطاقة الشمسية الذكية</p>
             </div>
         </div>
     </header>
@@ -215,52 +248,73 @@
         <div class="container">
             <div class="services">
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=180&q=80');"></div>
                     <div class="service-content">
                         <h3 class="service-title">حاسبة الطاقة الشمسية</h3>
                         <p>احسب احتياجاتك من الألواح الشمسية بدقة بناءً على استهلاكك الكهربائي وموقعك الجغرافي</p>
-                        <a href="https://shamsain23.vercel.app/" class="btn" target="_blank">استخدم الحاسبة</a>
+                        <a href="https://shamsain23.vercel.app/" class="btn btn-primary" target="_blank">استخدم الحاسبة</a>
                     </div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1517649763962-0c623066013b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=180&q=80');"></div>
                     <div class="service-content">
                         <h3 class="service-title">توافق المنظومة</h3>
                         <p>اكتشف مدى توافق نظامك الشمسي مع الأجهزة الكهربائية في منزلك أو مشروعك</p>
-                        <a href="https://calculate-eosin-eight.vercel.app/#" class="btn" target="_blank">تحقق من التوافق</a>
+                        <a href="https://calculate-eosin-eight.vercel.app/#" class="btn btn-accent" target="_blank">تحقق من التوافق</a>
                     </div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=180&q=80');"></div>
                     <div class="service-content">
                         <h3 class="service-title">خبير البطاريات</h3>
                         <p>احصل على أفضل حلول تخزين الطاقة الشمسية ونصائح الخبراء لاختيار البطاريات المناسبة</p>
-                        <a href="https://battery-one.vercel.app/" class="btn" target="_blank">استشر الخبير</a>
+                        <a href="https://battery-one.vercel.app/" class="btn btn-accent2" target="_blank">استشر الخبير</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=180&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">زاوية الإشعاع الشمسي</h3>
+                        <p>تحديد الزاوية المثالية للألواح الشمسية تلقائياً بناءً على موقعك الجغرافي والفصل السنوي</p>
+                        <a href="https://sun-ang.vercel.app/" class="btn btn-accent3" target="_blank">حدد الزاوية المثالية</a>
                     </div>
                 </div>
             </div>
             
             <div class="about">
-                <h2 class="section-title">عن منظومة الطاقة الشمسية</h2>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <h2 class="section-title">نظام الطاقة الشمسية المتكامل</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
                     <div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">مكونات النظام</h3>
+                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-solar-panel" style="margin-left: 8px;"></i> مكونات النظام</h3>
                         <ul style="list-style-type: none;">
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> الألواح الشمسية</li>
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> العاكس الشمسي</li>
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> نظام البطاريات</li>
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> نظام المراقبة</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> حاملات الألواح</li>
                         </ul>
                     </div>
                     <div>
-                        <h3 style="color: var(--accent); margin-bottom: 1rem;">المميزات</h3>
+                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-bolt" style="margin-left: 8px;"></i> المميزات</h3>
                         <ul style="list-style-type: none;">
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> توفير في فواتير الكهرباء</li>
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> طاقة نظيفة ومتجددة</li>
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> استقلالية عن الشبكة</li>
                             <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> زيادة قيمة العقار</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> دعم حكومي في كثير من الدول</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 style="color: var(--accent); margin-bottom: 1rem;"><i class="fas fa-lightbulb" style="margin-left: 8px;"></i> نصائح مهمة</h3>
+                        <ul style="list-style-type: none;">
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> اختيار الزاوية الصحيحة للألواح</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> تنظيف الألواح بانتظام</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> مراقبة أداء النظام</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> اختيار فنيين معتمدين</li>
+                            <li><i class="fas fa-check" style="color: var(--secondary); margin-left: 5px;"></i> حساب فترة استرداد التكلفة</li>
                         </ul>
                     </div>
                 </div>
@@ -286,4 +340,4 @@
         </div>
     </footer>
 </body>
-  </html>
+        </html>
