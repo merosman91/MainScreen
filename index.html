@@ -134,6 +134,10 @@
             background: var(--accent-purple);
         }
         
+        .btn-accent4 {
+            background: #16A085;
+        }
+        
         /* AI Assistant Section */
         .ai-assistant {
             background: var(--white);
@@ -282,6 +286,36 @@
             gap: 5px;
         }
         
+        /* Coming Soon Section */
+        .coming-soon {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        
+        .coming-soon h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .coming-soon p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .coming-soon-badge {
+            display: inline-block;
+            background: var(--accent-purple);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
         /* Footer */
         footer {
             background: var(--dark);
@@ -371,6 +405,16 @@
                         <a href="https://sun-ang.vercel.app/" class="btn btn-accent3" target="_blank">حدد الزاوية المثالية</a>
                     </div>
                 </div>
+                
+                <!-- إضافة قسم الموتورات الحثية -->
+                <div class="service-card">
+                    <div class="service-image" style="background-image: url('https://images.unsplash.com/photo-1581093450021-4a7360e9a7e8?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=180&q=80');"></div>
+                    <div class="service-content">
+                        <h3 class="service-title">الموتورات الحثية</h3>
+                        <p>حساب قدرة الموتورات الحثية وتوافقها مع أنظمة الطاقة الشمسية والتحكم فيها</p>
+                        <a href="https://motor-pink.vercel.app/" class="btn btn-accent4" target="_blank">استكشف الموتورات</a>
+                    </div>
+                </div>
             </div>
             
             <!-- مساعد الذكاء الاصطناعي -->
@@ -431,6 +475,14 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- قسم قريباً -->
+            <div class="coming-soon">
+                <span class="coming-soon-badge">قريباً</span>
+                <h2>نظام متقدم للذكاء الاصطناعي</h2>
+                <p>نعمل حالياً على تطوير نظام ذكاء اصطناعي متقدم يمكنه الإجابة على جميع استفساراتك في مجال الطاقة الشمسية والموتورات الحثية بدقة عالية.</p>
+                <p>سيتضمن النظام تحليلات متقدمة وتوصيات مخصصة بناءً على بياناتك واستخدامك.</p>
+            </div>
         </div>
     </div>
     
@@ -446,6 +498,7 @@
                 </div>
                 <p class="signature">
                     تطوير: <a href="mailto:merghanigasimosman@gmail.com" style="color: var(--secondary); text-decoration: none;">ميرغني أبوالقاسم عثمان</a>
+                    &copy; <span id="currentYear"></span>
                 </p>
             </div>
         </div>
@@ -462,7 +515,8 @@
             "كيف أحسب احتياجاتي من الألواح": "يمكنك استخدام حاسبة الطاقة الشمسية في تطبيقنا. تحتاج إلى معرفة: 1) استهلاكك الشهري من الكهرباء 2) مساحة السطح المتاحة 3) موقعك الجغرافي",
             "ما هي أفضل أنواع الألواح": "أفضل أنواع الألواح: 1) أحادية البلورية (كفاءة 20-22%) 2) متعددة البلورية (كفاءة 15-17%) 3) الألواح الرقيقة (كفاءة 10-12%)",
             "كيف أحافظ على الألواح": "صيانة الألواح: 1) تنظيفها كل 3-6 أشهر 2) فحص التوصيلات سنوياً 3) مراقبة الأداء بانتظام",
-            "default": "عذراً، لم أفهم سؤالك. يمكنك طرح أسئلة مثل: كيف أحسب احتياجاتي من الألواح؟ ما هي أفضل أنواع الألواح؟ كيف أحافظ على الألواح؟"
+            "الموتورات الحثية": "يمكنك استخدام أداة الموتورات الحثية لمعرفة: 1) قدرة الموتور المطلوبة 2) استهلاك الطاقة 3) التوافق مع الأنظمة الشمسية",
+            "default": "عذراً، لم أفهم سؤالك. يمكنك طرح أسئلة مثل: كيف أحسب احتياجاتي من الألواح؟ ما هي أفضل أنواع الألواح؟ كيف أحافظ على الألواح؟ أو أسئلة عن الموتورات الحثية"
         };
         
         askAI.addEventListener('click', function() {
@@ -519,8 +573,7 @@
         
         // تحديث السنة في التذييل
         document.addEventListener('DOMContentLoaded', function() {
-            document.querySelector('footer p:last-child').innerHTML += 
-                ` &copy; ${new Date().getFullYear()}`;
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
             updateRecommendations();
         });
     </script>
